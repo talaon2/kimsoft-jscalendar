@@ -314,7 +314,7 @@ String.prototype.toDate = function(delimiter, pattern) {
 	delimiter = delimiter || "-";
 	pattern = pattern || "ymd";
 	var a = this.split(delimiter);
-	var y = parseInt(a[pattern.indexOf("y")]);
+	var y = parseInt(a[pattern.indexOf("y")], 10);
 	//remember to change this next century ;)
 	if(y.toString().length <= 2) y += 2000;
 	if(isNaN(y)) y = new Date().getFullYear();
