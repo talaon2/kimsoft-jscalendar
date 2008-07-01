@@ -12,6 +12,7 @@
  * @author  KimSoft (jinqinghua [at] gmail.com)
  * NOTE!    you can use it free, but keep the copyright please
  * IMPORTANT:you must include this script file inner html body elment 
+ * @see http://code.google.com/p/kimsoft-jscalendar/
  */
 function Calendar(beginYear, endYear, language, patternDelimiter, date2StringPattern, string2DatePattern) {
 	this.beginYear = beginYear || 1990;
