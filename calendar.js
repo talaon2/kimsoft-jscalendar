@@ -3,7 +3,7 @@
  * Calendar
  * @param   beginYear           1990
  * @param   endYear             2010
- * @param   language            0(zh_cn)|1(en_us)|2(en_en)|3(zh_tw)
+ * @param   language            0(zh_cn)|1(en_us)|2(en_en)|3(zh_tw)|4(jp)
  * @param   patternDelimiter    "-"
  * @param   date2StringPattern  "yyyy-MM-dd"
  * @param   string2DatePattern  "ymd"
@@ -35,23 +35,25 @@ function Calendar(beginYear, endYear, language, patternDelimiter, date2StringPat
 };
 
 Calendar.language = {
-	"year"   : ["\u5e74", "", "", "\u5e74"],
+	"year"   : ["\u5e74", "", "", "\u5e74","\u5e74"],
 	"months" : [
 				["\u4e00\u6708","\u4e8c\u6708","\u4e09\u6708","\u56db\u6708","\u4e94\u6708","\u516d\u6708","\u4e03\u6708","\u516b\u6708","\u4e5d\u6708","\u5341\u6708","\u5341\u4e00\u6708","\u5341\u4e8c\u6708"],
 				["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"],
 				["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"],
-				["\u4e00\u6708","\u4e8c\u6708","\u4e09\u6708","\u56db\u6708","\u4e94\u6708","\u516d\u6708","\u4e03\u6708","\u516b\u6708","\u4e5d\u6708","\u5341\u6708","\u5341\u4e00\u6708","\u5341\u4e8c\u6708"]
+				["\u4e00\u6708","\u4e8c\u6708","\u4e09\u6708","\u56db\u6708","\u4e94\u6708","\u516d\u6708","\u4e03\u6708","\u516b\u6708","\u4e5d\u6708","\u5341\u6708","\u5341\u4e00\u6708","\u5341\u4e8c\u6708"],
+				["\u4e00\u6708","\u4e8c\u6708","\u4e09\u6708","\u56db\u6708","\u4e94\u6708","\u516d\u6708","\u4e03\u6708","\u516b\u6708","\u4e5d\u6708","\u5341\u6708","\u5341\u4e00\u6708","\u5341\u4e8c\u6708"]				
 				],
 	"weeks"  : [["\u65e5","\u4e00","\u4e8c","\u4e09","\u56db","\u4e94","\u516d"],
 				["Sun","Mon","Tur","Wed","Thu","Fri","Sat"],
 				["Sun","Mon","Tur","Wed","Thu","Fri","Sat"],
-				["\u65e5","\u4e00","\u4e8c","\u4e09","\u56db","\u4e94","\u516d"]
-		],
-	"clear"  : ["\u6e05\u7a7a", "Clear", "Clear", "\u6e05\u7a7a"],
-	"today"  : ["\u4eca\u5929", "Today", "Today", "\u4eca\u5929"],
-	"close"  : ["\u5173\u95ed", "Close", "Close", "\u95dc\u9589"],
-	"date2StringPattern" : ["yyyy-MM-dd", "yyyy-MM-dd", "yyyy-MM-dd", "yyyy-MM-dd"],
-	"string2DatePattern" : ["ymd","ymd", "ymd", "ymd"]
+				["\u65e5","\u4e00","\u4e8c","\u4e09","\u56db","\u4e94","\u516d"],
+				["\u65e5","\u6708","\u706b","\u6c34","\u6728","\u91d1","\u571f"],
+			],
+	"clear"  : ["\u6e05\u7a7a", "Clear", "Clear", "\u6e05\u7a7a", "\u524a\u9664"],
+	"today"  : ["\u4eca\u5929", "Today", "Today", "\u4eca\u5929", "\u4eca\u65e5"],
+	"close"  : ["\u5173\u95ed", "Close", "Close", "\u95dc\u9589", "\u623b\u308b"],
+	"date2StringPattern" : ["yyyy-MM-dd", "yyyy-MM-dd", "yyyy-MM-dd", "yyyy-MM-dd", "yyyy-MM-dd"],
+	"string2DatePattern" : ["ymd","ymd", "ymd", "ymd", "ymd"]
 };
 
 Calendar.prototype.draw = function() {
