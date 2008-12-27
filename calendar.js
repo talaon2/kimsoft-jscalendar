@@ -229,8 +229,8 @@ Calendar.prototype.getMonthViewDateArray = function (y, m) {
 };
 
 Calendar.prototype.show = function (dateControl, popuControl) {
-	if (this.panel.style.visibility == "visible") {
-		this.panel.style.visibility = "hidden";
+	if (this.panel.style.display == "block") {
+		this.panel.style.display = "none";
 	}
 	if (!dateControl){
 		throw new Error("arguments[0] is necessary!")
@@ -252,11 +252,11 @@ Calendar.prototype.show = function (dateControl, popuControl) {
 	var xy = this.getAbsPoint(popuControl);
 	this.panel.style.left = xy.x + "px";
 	this.panel.style.top = (xy.y + dateControl.offsetHeight) + "px";
-	this.panel.style.visibility = "visible";
+	this.panel.style.display = "block";
 };
 
 Calendar.prototype.hide = function() {
-	this.panel.style.visibility = "hidden";
+	this.panel.style.display = "none";
 };
 
 Calendar.prototype.getElementById = function(id, object){
@@ -327,38 +327,43 @@ String.prototype.toDate = function(delimiter, pattern) {
 	return new Date(y, m, d);
 };
 
-document.writeln('<div id="__calendarPanel" style="position:absolute;visibility:hidden;z-index:9999;background-color:#FFFFFF;border:1px solid #666666;width:200px;height:216px;">');
-document.writeln('<iframe name="__calendarIframe" id="__calendarIframe" width="100%" height="100%" scrolling="no" frameborder="0" style="margin:0px;"><\/iframe>');
+var divs = [];
+divs[divs.length] = '<div id="__calendarPanel" style="position:absolute;display:none;background-color:#FFFFFF;border:1px solid #666666;width:200px;height:216px;">';
+divs[divs.length] = '<iframe name="__calendarIframe" id="__calendarIframe" width="100%" height="100%" scrolling="no" frameborder="0" style="margin:0px;"><\/iframe>';
+divs[divs.length] = '<\/div>';
+document.write(divs.join(""));
+
 var __ci = window.frames['__calendarIframe'];
-__ci.document.writeln('<!DOCTYPE html PUBLIC "-\/\/W3C\/\/DTD XHTML 1.0 Transitional\/\/EN" "http:\/\/www.w3.org\/TR\/xhtml1\/DTD\/xhtml1-transitional.dtd">');
-__ci.document.writeln('<html xmlns="http:\/\/www.w3.org\/1999\/xhtml">');
-__ci.document.writeln('<head>');
-__ci.document.writeln('<meta http-equiv="Content-Type" content="text\/html; charset=utf-8" \/>');
-__ci.document.writeln('<title>Web Calendar(UTF-8) Written By KimSoft<\/title>');
-__ci.document.writeln('<style type="text\/css">');
-__ci.document.writeln('<!--');
-__ci.document.writeln('body {font-size:12px;margin:0px;text-align:center;}');
-__ci.document.writeln('form {margin:0px;}');
-__ci.document.writeln('select {font-size:12px;background-color:#EFEFEF;}');
-__ci.document.writeln('table {border:0px solid #CCCCCC;background-color:#FFFFFF}');
-__ci.document.writeln('th {font-size:12px;font-weight:normal;background-color:#FFFFFF;}');
-__ci.document.writeln('th.theader {font-weight:normal;background-color:#666666;color:#FFFFFF;width:24px;}');
-__ci.document.writeln('select.year {width:64px;}');
-__ci.document.writeln('select.month {width:60px;}');
-__ci.document.writeln('td {font-size:12px;text-align:center;}');
-__ci.document.writeln('td.sat {color:#0000FF;background-color:#EFEFEF;}');
-__ci.document.writeln('td.sun {color:#FF0000;background-color:#EFEFEF;}');
-__ci.document.writeln('td.normal {background-color:#EFEFEF;}');
-__ci.document.writeln('input.l {border: 1px solid #CCCCCC;background-color:#EFEFEF;width:20px;height:20px;}');
-__ci.document.writeln('input.r {border: 1px solid #CCCCCC;background-color:#EFEFEF;width:20px;height:20px;}');
-__ci.document.writeln('input.b {border: 1px solid #CCCCCC;background-color:#EFEFEF;width:100%;height:20px;}');
-__ci.document.writeln('-->');
-__ci.document.writeln('<\/style>');
-__ci.document.writeln('<\/head>');
-__ci.document.writeln('<body>');
-__ci.document.writeln('<\/body>');
-__ci.document.writeln('<\/html>');
+var cis = [];
+cis[cis.length] ='<!DOCTYPE html PUBLIC "-\/\/W3C\/\/DTD XHTML 1.0 Transitional\/\/EN" "http:\/\/www.w3.org\/TR\/xhtml1\/DTD\/xhtml1-transitional.dtd">';
+cis[cis.length] ='<html xmlns="http:\/\/www.w3.org\/1999\/xhtml">';
+cis[cis.length] ='<head>';
+cis[cis.length] ='<meta http-equiv="Content-Type" content="text\/html; charset=utf-8" \/>';
+cis[cis.length] ='<title>Web Calendar(UTF-8) Written By KimSoft<\/title>';
+cis[cis.length] ='<style type="text\/css">';
+cis[cis.length] ='<!--';
+cis[cis.length] ='body {font-size:12px;margin:0px;text-align:center;}';
+cis[cis.length] ='form {margin:0px;}';
+cis[cis.length] ='select {font-size:12px;background-color:#EFEFEF;}';
+cis[cis.length] ='table {border:0px solid #CCCCCC;background-color:#FFFFFF}';
+cis[cis.length] ='th {font-size:12px;font-weight:normal;background-color:#FFFFFF;}';
+cis[cis.length] ='th.theader {font-weight:normal;background-color:#666666;color:#FFFFFF;width:24px;}';
+cis[cis.length] ='select.year {width:64px;}';
+cis[cis.length] ='select.month {width:60px;}';
+cis[cis.length] ='td {font-size:12px;text-align:center;}';
+cis[cis.length] ='td.sat {color:#0000FF;background-color:#EFEFEF;}';
+cis[cis.length] ='td.sun {color:#FF0000;background-color:#EFEFEF;}';
+cis[cis.length] ='td.normal {background-color:#EFEFEF;}';
+cis[cis.length] ='input.l {border: 1px solid #CCCCCC;background-color:#EFEFEF;width:20px;height:20px;}';
+cis[cis.length] ='input.r {border: 1px solid #CCCCCC;background-color:#EFEFEF;width:20px;height:20px;}';
+cis[cis.length] ='input.b {border: 1px solid #CCCCCC;background-color:#EFEFEF;width:100%;height:20px;}';
+cis[cis.length] ='-->';
+cis[cis.length] ='<\/style>';
+cis[cis.length] ='<\/head>';
+cis[cis.length] ='<body>';
+cis[cis.length] ='<\/body>';
+cis[cis.length] ='<\/html>';
+__ci.document.writeln(cis.join(""));
 __ci.document.close();
-document.writeln('<\/div>');
 var calendar = new Calendar();
 //-->
