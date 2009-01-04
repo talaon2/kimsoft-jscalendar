@@ -7,8 +7,13 @@
  * @param   patternDelimiter    "-"
  * @param   date2StringPattern  "yyyy-MM-dd"
  * @param   string2DatePattern  "ymd"
- * @version 1.0 build 2006-04-01
- * @version 1.1 build 2006-12-17
+ * @version V20060401
+ * @version V20061217
+ * @version V20080809 add to google project
+ * @version V20081226 add language support for japanese 
+ * @version V20090104 add fix some bugs in help.html
+					  use style.display replace the style.visibility
+					  some enhancements and changes
  * @author  KimSoft (jinqinghua [at] gmail.com)
  * NOTE!    you can use it free, but keep the copyright please
  * IMPORTANT:you must include this script file inner html body elment 
