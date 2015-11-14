@@ -13,7 +13,7 @@ Project Information
 
 Members
 
-    jinqing...@gmail.com
+    jinqinghua [at] gmail.com
 
 Links
 
